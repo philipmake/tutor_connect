@@ -7,17 +7,17 @@
     
     <?php if ($page == "index"): ?>
         <title>Welcome - Tutor Connect</title>
-        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="css/index.css">
     <?php elseif ($page == "auth"): ?>
         <title>Authentication</title>
-        <link rel="stylesheet" href="/css/auth.css">
+        <link rel="stylesheet" href="css/auth.css">
     <?php elseif ($page == "main3"): ?>
         <title>Main 3</title>
     <?php endif; ?>
 
     <!-- css styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <nav>
