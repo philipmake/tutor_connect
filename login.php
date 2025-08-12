@@ -1,7 +1,7 @@
 <?php
 $page = "auth";
 include_once("includes/header.php");
-include_once("includes/config.php");
+require_once("includes/config.php");
 ?>
 
 <div class="auth-wrapper">
