@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "Role must be either 'tutor' or 'parent'.";
     }
 
-    // If no errors, insert into database
+        // If no errors, insert into database
     if (empty($errors)) {
         $hash_password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -44,7 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 INSERT INTO users (role, fullname, email, phone, password)
                 VALUES (:role, :fullname, :email, :phone, :password)
             ");
-
             $stmt->execute([
                 ':role'     => $role,
                 ':fullname' => $fullname,
@@ -53,18 +52,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ':password' => $hash_password
             ]);
 
-            $success = "Registration successful!";
+            // Set session for the new user
+            $user_id = $pdo->lastInsertId();
+            session_start();
+            $_SESSION['user_id'] = $user_id;
+            $_SESSION['role'] = $role;
+
+            // Redirect based on role
+            if ($role === "parent") {
+                header("Location: parent_registration.php");
+                exit;
+            } elseif ($role === "tutor") {
+                header("Location: tutor_registration.php");
+                exit;
+            }
+
         } catch (PDOException $e) {
             $errors[] = "Database error: " . $e->getMessage();
         }
     }
-   
-    // redirect to complete registration
-    if ($role === "parent") {
-        header("Location: ");
-    } elseif ($role === "tutor") {
-        header("Location: tutor_registration.php");
-    }
+
 
 }
 

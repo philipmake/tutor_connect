@@ -43,15 +43,11 @@ CREATE TABLE payments (
     FOREIGN KEY (booking_id) REFERENCES bookings(id) ON DELETE CASCADE
 );
 
--- 5. Parent table (linking a user to payments & bookings)
+-- 5. Parent table (just links a user to the parent role)
 CREATE TABLE parent (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    payment_id INT,
-    booking_id INT,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (payment_id) REFERENCES payments(id) ON DELETE CASCADE,
-    FOREIGN KEY (booking_id) REFERENCES bookings(id) ON DELETE CASCADE
+    user_id INT NOT NULL UNIQUE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 -- 6. Tutor table

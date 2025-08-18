@@ -25,7 +25,7 @@ p > a {
 .form-group{
     display: flex;
     flex-direction: column;
-    gap: .25rem;
+    gap: .1rem;
 }
 
 label{
@@ -40,9 +40,59 @@ input{
     border-radius: 1.25rem;
 }
 
+input[type="checkbox"] {
+    padding: 2px;
+}
+
+textarea{
+    padding: 12px;
+    background-color: inherit;
+    color: black;
+    border: 1px solid black;
+    border-radius: 1.25rem;
+}
+
 input::placeholder{
     color: black;
     font-size: 14px;
+}
+
+select#subjects{
+    height: auto;
+    min-height: 150px;
+    width: 280px;
+    padding: 6px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    font-size: 15px;
+    /* color: #333; */
+}
+
+select#subjects option {
+    padding: 6px;
+    margin: 2px 0;
+    cursor: pointer;
+}
+
+select#subjects option:checked {
+    background-color: #007bff;
+    color: white;
+}
+
+select#day {
+    padding: 2px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: blueviolet;
+}
+
+input[type="time"] {
+    padding-inline-start: 2px;
+    /* border: 1px solid black; */
+    border: none;
+    border-radius: 4px;
 }
 
 button{
@@ -98,3 +148,4 @@ button:hover{
     color: blueviolet;
     border-color: #4CAF50;
 }
+
