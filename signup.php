@@ -84,8 +84,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!---- Display messages ---->
     
     <?php if (!empty($errors)): ?>
-        <div class="error" style="color: red;">
-            <ul>
+        <div class="error" style="color: gray; padding: 5px;">
+            <ul  style="list-style:none;">
                 <?php foreach ($errors as $err): ?>
                     <li><?= htmlspecialchars($err) ?></li>
                 <?php endforeach; ?>

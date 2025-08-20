@@ -40,6 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION["fullname"] = $user["fullname"];
                     $_SESSION["email"] = $user["email"];
                     $_SESSION["role"] = $user["role"];
+                    $_SESSION["profile_picture"] = $user["profile_picture"];
+                    $_SESSION["phone"] = $user["phone"];
 
                     header("Location: profile.php");
 
@@ -62,6 +64,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="auth-wrapper">
     <h2>Login to your Account</h2>
 
+     <!---- Display messages ---->
+    
+    <?php if (!empty($errors)): ?>
+        <div class="error" style="color: gray; padding: 5px;">
+            <ul style="list-style:none;">
+                <?php foreach ($errors as $err): ?>
+                    <li><?= htmlspecialchars($err) ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+
+    <!-------------------------->
+    
+    <?php if ($success): ?>
+        <div class="success" style="color: green;">
+            <?= htmlspecialchars($success) ?>
+        </div>
+    <?php endif; ?>
+
+    <!-------------------------->
+    
     <form action="" method="POST">
         <div class="form-group">
             <label for="name">Email:</label>

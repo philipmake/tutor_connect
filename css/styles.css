@@ -21,6 +21,8 @@ nav {
 .navlinks {
     display: flex;
     gap: 2rem;
+
+    z-index: 1000;
 }
 
 .navlinks ul {
@@ -48,7 +50,8 @@ ul li a:hover {
 }
 
 .nav-cta-login,
-.nav-cta-signup {
+.nav-cta-signup,
+.nav-cta-logout {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,7 +71,8 @@ ul li a:hover {
     background-color: rgba(145, 51, 233, 0.575);
 }
 
-.nav-cta-login {
+.nav-cta-login,
+.nav-cta-logout {
     border: none;
     border-radius: 24px;
     padding: 10px;
@@ -76,10 +80,12 @@ ul li a:hover {
     background-color: black;
 }
 
-.nav-cta-login:hover {
+.nav-cta-login:hover,
+.nav-cta-logout:hover {
     background-color: #333;
     transform: scaleX(1.05);
 }
+
 
 .hamburger {
     display: none;
